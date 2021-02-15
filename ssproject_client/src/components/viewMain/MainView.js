@@ -20,6 +20,8 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import MessageSpecList from './MessageSpecList';
 import SideMenuList from './SideMenuList';
+import ScrollableTabsButtonForce from './ScrollableTabsButtonForce';
+import Diagram from './Diagram';
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
@@ -139,14 +141,7 @@ export default function MainView() {
           >
             <MenuIcon />
           </IconButton>
-          <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
-            Dashboard
-          </Typography>
-          <IconButton color="inherit">
-            <Badge badgeContent={4} color="secondary">
-              <NotificationsIcon />
-            </Badge>
-          </IconButton>
+          <ScrollableTabsButtonForce></ScrollableTabsButtonForce>
         </Toolbar>
       </AppBar>
       <Drawer
@@ -168,6 +163,12 @@ export default function MainView() {
         <div className={classes.appBarSpacer} />
         <Container maxWidth="lg" className={classes.container}>
           <Grid container spacing={3}>
+            {/* Diagram */}
+            <Grid item xs={12} md={8} lg={9}>
+              <Paper className={fixedHeightPaper}>
+                <Diagram />
+              </Paper>
+            </Grid>
             {/* Recent Deposits */}
             <Grid item xs={12} md={4} lg={3}>
               <Paper className={fixedHeightPaper}>
