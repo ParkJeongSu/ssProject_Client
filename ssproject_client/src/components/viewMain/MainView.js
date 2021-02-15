@@ -19,9 +19,11 @@ import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import MessageSpecList from './MessageSpecList';
+import MessageSpecInfo from './MessageSpecInfo';
 import SideMenuList from './SideMenuList';
 import ScrollableTabsButtonForce from './ScrollableTabsButtonForce';
 import Diagram from './Diagram';
+import TextField from '@material-ui/core/TextField';
 function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
@@ -112,7 +114,7 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: 'column',
   },
   fixedHeight: {
-    height: 240,
+    height: 480,
   },
 }));
 
@@ -163,6 +165,12 @@ export default function MainView() {
         <div className={classes.appBarSpacer} />
         <Container maxWidth="lg" className={classes.container}>
           <Grid container spacing={3}>
+            {/* MessageSpec Item */}
+            <Grid item xs={12} md={12} lg={12}>
+              <Paper className={fixedHeightPaper}>
+                <MessageSpecInfo />
+              </Paper>
+            </Grid>
             {/* Diagram */}
             <Grid item xs={12} md={8} lg={9}>
               <Paper className={fixedHeightPaper}>
@@ -173,6 +181,17 @@ export default function MainView() {
             <Grid item xs={12} md={4} lg={3}>
               <Paper className={fixedHeightPaper}>
                 <MessageSpecList />
+              </Paper>
+            </Grid>
+            <Grid item xs={12} md={12} lg={12}>
+              <Paper className={fixedHeightPaper}>
+              <TextField
+                id="outlined-multiline-static"
+                label="Multiline"
+                multiline
+                defaultValue="Default Value"
+                variant="outlined"
+                />
               </Paper>
             </Grid>
           </Grid>
